@@ -1,0 +1,148 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: #1A1A1A;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    color: white;
+    // flex-wrap: wrap;
+}
+@media (max-width: 800px) {
+    .logo h1 {
+        font-size: 1rem; /* Adjust font size for better responsiveness */
+    }
+
+    .navig {
+        display: none; /* Hide navigation links */
+    }
+
+    .sign {
+        display: flex;
+        flex-direction: column; /* Stack sign-in and sign-up buttons */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .logo {
+        display: none; /* Hide the logo */
+    }
+    .header {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .logo h1 {
+        font-size: 0.8rem; /* Further adjust font size for smaller screens */
+    }
+
+    .navig {
+        display: flex; /* Display navigation links */
+        flex-wrap: wrap; /* Allow navigation links to wrap */
+        gap: 1rem;
+        width: 100%;
+    }
+
+    ul {
+        font-size: 15px;
+        display: flex;
+        gap: 1rem;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+    li {
+        margin: 0;
+        flex-basis: calc(50% - 0.5rem); /* Arrange two items per row */
+    }
+    li a {
+        text-decoration: none;
+        color: #b40808;
+        font-weight: 800;
+        position: relative; /* Add relative positioning */
+    }
+
+    li a::before {
+        content: "";
+        position: absolute;
+        bottom: -3px; /* Adjust the spacing of the underline from the text */
+        left: 0;
+        width: 100%;
+        height: 2px; /* Adjust the thickness of the underline */
+        background-color: #b40808;
+        transform: scaleX(0); /* Initially hide the underline */
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    li a:hover::before {
+        transform: scaleX(1); /* Display the underline on hover */
+    }
+
+    sign {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .white,
+    .red {
+        height: 30px; /* Adjust the button height */
+        font-size: 0.8rem; /* Adjust the font size of the button text */
+        padding: 0 10px; /* Adjust horizontal padding */
+    }
+}
+.navig{
+    align-items: center;
+    display: flex;
+}
+ul{
+    display: flex;
+    gap: 2.5rem;
+}
+li{
+    list-style-type: none;
+    display: block;
+    transition: .5s;
+}
+ul:hover li{
+    filter: blur(5px);
+}
+ul li:hover{
+    filter: blur(0px);
+}
+li a{
+    text-decoration: none;
+    color: #b40808;
+    font-weight: 800;
+}
+.sign{
+    display: flex;
+    gap: 10px;
+}
+.white{
+    background: none;
+    border: none;
+    width: 80px;
+    height: 40px;
+    color: white;
+}
+.white:hover{
+    background: #b40808;
+    border: none;
+    border-radius: 20px;
+    color: white;
+}
+.red{
+    height: 40px;
+    background: #C70000;
+    border: none;
+    border-radius: 20px;
+    width: 80px;  
+}
+.red:hover {
+    background-color: #b40808;
+    color: white;
+  }
