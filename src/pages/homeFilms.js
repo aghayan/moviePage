@@ -47,8 +47,10 @@ export function Homefilms() {
     
 
 	useEffect(() => {
-		getMovieRequest(searchValue);
-	}, [searchValue]);
+        if(searchValue){
+          getMovieRequest(searchValue);
+        }
+    }, [searchValue]);
 
 	useEffect(() => {
 		const movieFavourites = JSON.parse(
