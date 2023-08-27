@@ -5,7 +5,6 @@ import './styles/contactPage.scss';
 
 function ContactPage() {
 
-    
     return (
         <> 
         <Loading/>

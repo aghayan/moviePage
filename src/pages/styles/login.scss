@@ -1,10 +1,9 @@
 .login-container {
-  background-color: black;
-  height: 600px;
+  background-image: url(../loginBackground/wallpaper.gif);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 150px;
 
   .login-box {
     background-color: rgba(0, 0, 0, 0.8);
@@ -41,8 +40,10 @@
         color: rgba(255, 255, 255, 0.8);
 
         a {
-          color: rgba(255, 255, 255, 0.8);
+          color: #e50914;
           text-decoration: none;
+          font-size: 17px;
+          font-weight: 900;
 
           &:hover {
             text-decoration: underline;

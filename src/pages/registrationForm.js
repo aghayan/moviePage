@@ -24,8 +24,9 @@ export  function RegistrationForm() {
   const onSubmit = (data) => {
       const updatedUserData = {...UserData, ...data};
       dispatch(AddData(updatedUserData));
+      navigate('/');
       reset();
-      console.log(updatedUserData)
+
   };
 
   useEffect(() => {
@@ -36,7 +37,6 @@ export  function RegistrationForm() {
 
 return (
   <div>
-    <Navigation/>
   <div className="signup-wrapper">
       <div className="registration-form">
       <h1>Sign Up</h1>
@@ -109,7 +109,8 @@ return (
           <div className="links">
               <Link to={'/'} className="link">login account</Link>
           </div>
-          <button className="submit">Register</button>
+              <button className="submit">Register</button>
+
       </form>
   </div>
   </div>

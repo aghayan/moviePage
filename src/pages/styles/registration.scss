@@ -1,27 +1,30 @@
 .registration-form {
-    background-color: black;
+    background-image: url(../loginBackground/wallpaper.gif);
+    height: 100vh;
     color: white;
     border-radius: 10px;
-    padding-top: 150px;
-    
+    padding-top: 100px;   
   
     h1 {
       text-align: center;
     }
   
     form {
+      background-color: rgba(0, 0, 0, 0.8);
       flex-direction: column;
+      width: 400px;
       padding: 30px;
       border-radius: 8px;
       color: white;
       text-align: center;
-      background-color: black;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin: 0 auto;
+      
   
       input {
-        width: 25%;
+        width: 80%;
         margin: 10px 0;
         padding: 10px;
         border: none;

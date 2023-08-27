@@ -1,13 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import {Route, Routes, useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import './styles/login.scss'
-import { Navigation } from '../component/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Login = () => {
-
-  
 
     const dispatch = useDispatch();
     const { UserData } = useSelector( store => ({
@@ -19,10 +16,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
 
-
     const navigate = useNavigate()
-
-
 
     const onSubmit = (data) => {
 
@@ -33,12 +27,10 @@ const Login = () => {
             setPassword('');
             navigate('/homeFilms');
             reset();
-            console.log(data);
-        }else if (data.login === inputData.name && data.password === inputData.password){
+        }else if (data.login ===  inputData.email && data.password === inputData.password){
           
             navigate('/homeFilms');
             reset();
-            console.log(inputData)
         } else {
             setError('Invalid login or password'); 
         }
@@ -46,10 +38,7 @@ const Login = () => {
 
   return (
     
-
-    
-    <div>
-        <Navigation/>
+    <>
         <div className="login-container">
       <div className="login-box">
         <h1>Welcome to Your Movie Website</h1>
@@ -57,7 +46,7 @@ const Login = () => {
 
         <input  {...register("login", { required: "Login is required" })} 
                     type="text" 
-                    placeholder='Login'
+                    placeholder='Email'
                     value={login}
                     onChange={(e) => {
                         setLogin(e.target.value);
@@ -76,7 +65,7 @@ const Login = () => {
             <label>
               <input type="checkbox" /> Remember Me
             </label>
-            <a href="#">Forgot Password?</a>
+            <Link to={'/signin'}>Register</Link>
           </div>
           <div className='errors'>
             {errors.login && <p className={(errors.login || (login !== 'arman2002' && login !== '')) ? "error" : ""}>{errors.login.message}</p>}
@@ -88,10 +77,9 @@ const Login = () => {
         </>
         </form>
        
-
       </div>
       </div>
-    </div>
+    </>
   );
 };
 

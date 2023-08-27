@@ -4,13 +4,15 @@ import axios from 'axios';
 import { Navigation } from '../../component/navigation';
 import './style/movieDetail.scss';
 import { Loading } from '../../component/loading';
+import EditComm from './EditComment';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [trailerUrl, setTrailerUrl] = useState('');
-  const [comments, setComments] = useState([]);
-  const [newComment, setNewComment] = useState('');
+  const [comments, setComments] = useState([{ comment: "Nice", id: Math.random(), userName: 'User' }]);
+  const [newComments, setNewComment] = useState('');
+  const [editComment, setEditComment] = useState(-1);
 
   useEffect(() => {
     const movieUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US`;
@@ -41,11 +43,24 @@ const MovieDetails = () => {
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    if (newComment.trim() !== '') {
+    if (newComments.trim() !== '') {
+      const newComment = {
+        comment: newComments,
+        id: Math.random(),
+    };
       setComments([...comments, newComment]);
       setNewComment('');
     }
   };
+
+  function handleEdit (id) {
+    setEditComment(id)
+}
+
+function handleDelete(id) {
+  const updatedComments = comments.filter(comment => comment.id !== id);
+  setComments(updatedComments);
+}
 
   if (!movie) {
     return <div><Loading/></div>;
@@ -83,15 +98,28 @@ const MovieDetails = () => {
         <form className='comment_form' onSubmit={handleCommentSubmit}>
           <textarea
             placeholder=" Leave a comment"
-            value={newComment}
+            value={newComments}
             onChange={(e) => setNewComment(e.target.value)}
           ></textarea>
           <button className='comment_button' type="submit">Submit</button>
         </form>
         <div className='existing-comments'>
           {comments.map((comment, index) => (
-            <div key={index} className='comment'>
-              {comment}
+            editComment === comment.id
+            ? 
+            <div key={comment.id}>
+                <EditComm
+                    comment={comment} 
+                    listComment={comments} 
+                    setCommentList={setComments} 
+                    saveEdit={() => setEditComment(-1)}
+                />
+            </div>
+            :
+            <div key={comment.id} className='comment'>
+              <p>{comment.comment}</p>
+              <button className='comment_button' onClick={() => handleEdit(comment.id)}>Edit</button>
+              <button className='comment_button' onClick={() => handleDelete(comment.id)} >Delete</button>
             </div>
           ))}
         </div>

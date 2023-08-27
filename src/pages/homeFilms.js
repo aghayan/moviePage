@@ -9,10 +9,7 @@ import "./styles/homeFilms.scss";
 import axios from 'axios';
 import { Loading } from "../component/loading";
 
-
 export function Homefilms() {
-
-    
 
     const [movies, setMovies] = useState([]);
 	const [favourites, setFavourites] = useState([]);
@@ -35,9 +32,7 @@ export function Homefilms() {
         axios.get(url)
             .then((res) => {
                 const movieData = res.data.results;
-                setMovies(movieData); 
-                console.log(res);
-                
+                setMovies(movieData);                 
             })
             .catch((error) => {
                 console.error("Error fetching movie data:", error);

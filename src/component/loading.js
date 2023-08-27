@@ -2,9 +2,6 @@ import { useEffect, useState } from "react";
 import { MoonLoader } from 'react-spinners';
 import './components_style/loading.scss';
 
-
-
-
 export function Loading() {
 
     const [isLoading, setIsLoading] = useState(true);
@@ -24,8 +21,7 @@ export function Loading() {
     }
 
     return(
-        <div>
-
-        </div>
+          <>
+          </>
     )
 }
