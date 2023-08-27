@@ -118,8 +118,10 @@ function handleDelete(id) {
             :
             <div key={comment.id} className='comment'>
               <p>{comment.comment}</p>
-              <button className='comment_button' onClick={() => handleEdit(comment.id)}>Edit</button>
-              <button className='comment_button' onClick={() => handleDelete(comment.id)} >Delete</button>
+              <div className='button_div'>
+                <button className='comment_button' onClick={() => handleEdit(comment.id)}>Edit</button>
+                <button className='comment_button' onClick={() => handleDelete(comment.id)} >Delete</button>
+              </div>
             </div>
           ))}
         </div>

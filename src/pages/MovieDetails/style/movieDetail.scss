@@ -74,6 +74,16 @@ textarea{
     border-radius: 10px;
     padding: 15px 0px;
 }
+.comment p{
+    margin-top: 20px;
+    border: 1px solid;
+}
+.button_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
 .trailer{
     text-align: center;
     padding: 100px 0px;

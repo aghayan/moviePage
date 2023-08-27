@@ -24,8 +24,9 @@ export default function EditComm({ comment, listComment, setCommentList, saveEdi
             onChange={handleTextarea}
         ></textarea>
         <div className="edit_button_cont">
-          <button onClick={() => handleCheckSaveValue()} className='save_button'>Save</button>
+          <button style={{height:'40', background:'#C70000', border:'none', borderRadius:'30px', width:'80px'}} onClick={() => handleCheckSaveValue()} className='save_button'>Save</button>
         </div>
     </div>
   )
 }
+
